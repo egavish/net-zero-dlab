@@ -11,9 +11,15 @@ import glob
 import os
 import plotly.express as px
 from shapely.geometry.polygon import Polygon
+import numpy as np
 
+<<<<<<< HEAD
 filePath = 'C:/Users/einat/D-Lab/net-zero-dlab'
 inputSignifier = 'energy_distribution_data_*.csv'
+=======
+filePath = '/Users/kmak/Desktop/EC.719/Building Energy Visualization/net-zero-dlab/Data files'
+inputSignifier = 'input_energy_data-*.csv'
+>>>>>>> 8e8d13bbdae2e0265c90150960034ffaeaafaeb6
 
 
 ######
@@ -26,7 +32,11 @@ joined_list = glob.glob(joined_files)
 
 joinedData = pd.concat(map(pd.read_csv,joined_list))
 
+<<<<<<< HEAD
 # culledData = joinedD ata[['START_DATE', 'BUILDING_NUMBER', 'LEVEL3_CATEGORY', 'MMBTU']]
+=======
+# culledData = joinedData[['START_DATE', 'BUILDING_NUMBER', 'LEVEL3_CATEGORY', 'MMBTU']]
+>>>>>>> 8e8d13bbdae2e0265c90150960034ffaeaafaeb6
 
 electricityData = []
 steamData = []
@@ -39,7 +49,8 @@ for index, data in enumerate(energyDataList):
     data = joinedData[joinedData['LEVEL3_CATEGORY'] == energyDataTypes[index]]
     data['START_DATE'] = pd.to_datetime(data['START_DATE'])
     data = data.sort_values(by = 'START_DATE')
-    data = data.pivot_table(index = 'START_DATE', columns = 'BUILDING_NUMBER', values = 'MMBTU', fill_value='NaN', aggfunc='sum')
+    # data = data.pivot_table(index = 'START_DATE', columns = 'BUILDING_NUMBER', values = 'MMBTU', fill_value='NaN', aggfunc=np.sum)
+    data = pd.pivot_table(data, values = 'MMBTU', index = 'START_DATE', columns = 'BUILDING_NUMBER', aggfunc = np.sum) #fill_value = 'NaN'
     data = data.transpose()
     data.to_csv(filePath + '/' + energyDataTypes[index] + '.csv')
 

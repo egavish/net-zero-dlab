@@ -12,11 +12,11 @@ import os
 import plotly.express as px
 from shapely.geometry.polygon import Polygon
 import geopandas as gpd
-from plotly.offline import plot
+from plotly.offline import plot, download_plotlyjs, init_notebook_mode, plot, iplot
 import plotly.graph_objects as go
 import shapely
 
-filePath = '/Users/kmak/Desktop/EC.719/Building Energy Visualization'
+filePath = '/Users/kmak/Desktop/EC.719/Building Energy Visualization/net-zero-dlab/Data files'
 
 ######
 # Visualization
@@ -27,15 +27,10 @@ steamData = pd.read_csv(filePath + '/Steam.csv')
 chilledWaterData = pd.read_csv(filePath + '/Chilled Water.csv')
 buildingFootprints = pd.read_csv(filePath + '/building-footprint.csv')
 
+
 # NOTE: To covert str representation of Polygon to type Polygon
 # electricityData['geometry'] = electricityData['geometry'].apply(shapely.wkt.loads)
 
 #NOTE: To show plotly choropleth plots, I had to use plot(figure) instead of figure.show().
 # It would then open in a browser window.
-
-
-
-
-
-
 
