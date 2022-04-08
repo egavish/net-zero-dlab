@@ -13,7 +13,7 @@ import plotly.express as px
 from shapely.geometry.polygon import Polygon
 import numpy as np
 
-filePath = '/Users/kmak/Desktop/EC.719/Building Energy Visualization/net-zero-dlab/Data files'
+filePath = '/Users/kmak/Desktop/EC.719/Building Energy Visualization/net-zero-dlab/Data files' ##change to your filename
 inputSignifier = 'input_energy_data-*.csv'
 
 
@@ -78,7 +78,7 @@ chilledWaterData = chilledWaterData.merge(buildingFootprints, how='left', on='BU
 
 electricityData.to_csv(filePath + '/Electricity.csv', index=False)
 steamData.to_csv(filePath + '/Steam.csv', index=False)
-steamData.to_csv(filePath + '/Chilled Water.csv', index=False)
+chilledWaterData.to_csv(filePath + '/Chilled Water.csv', index=False)
 
 
 
