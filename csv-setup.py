@@ -56,7 +56,7 @@ buildingFootprints = pd.DataFrame()
 
 for buildingNumber, group in buildingFootprintCoordinates.groupby('BUILDING_NUMBER'):
     polygon = Polygon(zip(group.X, group.Y))
-    row = {'BUILDING_NUMBER': buildingNumber, 'geometry': polygon}
+    row = {'BUILDING_NUMBER': buildingNumber, 'geometry': polygon, 'area': group.SHAPE_AREA.iloc[0]}
     buildingFootprints = buildingFootprints.append(row, ignore_index = True)
 
 buildingFootprints.to_csv(filePath + '/building-footprint.csv', index=False)
