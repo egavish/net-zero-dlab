@@ -33,5 +33,5 @@ Notes from Amro about next steps for the code:
 - [ ] Where are the inflection points of the duration curve? (Remember from calculus that the inflection point of a function is where the function's second derivative equals zero.). Why are the inflection points important?
 - [ ] For each building make a subplot that shows steam, chilled water, and electricity as a histogram.
 - [ ] Please calculate important statistics. Max, Min, standard deviation, mean, and total.
-- [ ] For each building make a subplot that shows the power spectra. you will need to take the Fourier transform of the data.
-- [ ] What frequencies are most dominant? What does this tell you?
+- [x] For each building make a subplot that shows the power spectra. you will need to take the Fourier transform of the data.
+- [x] What frequencies are most dominant? What does this tell you?
